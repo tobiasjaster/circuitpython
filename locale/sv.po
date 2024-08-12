@@ -102,7 +102,7 @@ msgstr "%q och %q måste vara olika"
 msgid "%q and %q must share a clock unit"
 msgstr "%q och %q måste dela klockenhet"
 
-#: ports/nrf/common-hal/watchdog/WatchDogTimer.c
+#: ports/nordic/common-hal/watchdog/WatchDogTimer.c
 msgid "%q cannot be changed once mode is set to %q"
 msgstr ""
 
@@ -121,11 +121,12 @@ msgstr "%q i %q måste vara av typen %q, inte %q"
 #: ports/espressif/common-hal/espulp/ULP.c
 #: ports/mimxrt10xx/common-hal/audiobusio/__init__.c
 #: ports/mimxrt10xx/common-hal/usb_host/Port.c
-#: ports/raspberrypi/common-hal/picodvi/Framebuffer.c
+#: ports/raspberrypi/common-hal/picodvi/Framebuffer_RP2040.c
+#: ports/raspberrypi/common-hal/picodvi/Framebuffer_RP2350.c
 #: ports/raspberrypi/common-hal/rp2pio/StateMachine.c
 #: ports/raspberrypi/common-hal/usb_host/Port.c
 #: shared-bindings/digitalio/DigitalInOut.c
-#: shared-bindings/microcontroller/Pin.c
+#: shared-bindings/microcontroller/Pin.c shared-module/max3421e/Max3421E.c
 msgid "%q in use"
 msgstr "%q används redan"
 
@@ -165,7 +166,7 @@ msgstr "längden på %q måste vara <= %d"
 msgid "%q length must be >= %d"
 msgstr "längden på %q måste vara >= %d"
 
-#: py/objmodule.c py/runtime.c
+#: py/modsys.c py/objmodule.c py/runtime.c
 msgid "%q moved from %q to %q"
 msgstr "%q flyttad från %q till %q"
 
@@ -250,7 +251,7 @@ msgstr "%q är utanför gränserna"
 
 #: ports/atmel-samd/common-hal/pulseio/PulseIn.c
 #: ports/cxd56/common-hal/pulseio/PulseIn.c
-#: ports/nrf/common-hal/pulseio/PulseIn.c
+#: ports/nordic/common-hal/pulseio/PulseIn.c
 #: ports/raspberrypi/common-hal/rp2pio/StateMachine.c
 #: ports/stm/common-hal/pulseio/PulseIn.c py/argcheck.c
 #: shared-bindings/canio/Match.c shared-bindings/time/__init__.c
@@ -475,7 +476,7 @@ msgid "Address must be %d bytes long"
 msgstr "Adressen måste vara %d byte lång"
 
 #: ports/espressif/common-hal/memorymap/AddressRange.c
-#: ports/nrf/common-hal/memorymap/AddressRange.c
+#: ports/nordic/common-hal/memorymap/AddressRange.c
 #: ports/raspberrypi/common-hal/memorymap/AddressRange.c
 msgid "Address range not allowed"
 msgstr "Adressintervallet är inte tillåtet"
@@ -490,7 +491,7 @@ msgstr "All CAN-kringutrustning används"
 
 #: ports/espressif/common-hal/busio/I2C.c
 #: ports/espressif/common-hal/i2ctarget/I2CTarget.c
-#: ports/nrf/common-hal/busio/I2C.c
+#: ports/nordic/common-hal/busio/I2C.c
 msgid "All I2C peripherals are in use"
 msgstr "All I2C-kringutrustning används"
 
@@ -500,17 +501,17 @@ msgstr "All I2C-kringutrustning används"
 msgid "All RX FIFOs in use"
 msgstr "Alla RX FIFO i bruk"
 
-#: ports/espressif/common-hal/busio/SPI.c ports/nrf/common-hal/busio/SPI.c
+#: ports/espressif/common-hal/busio/SPI.c ports/nordic/common-hal/busio/SPI.c
 msgid "All SPI peripherals are in use"
 msgstr "All SPI-kringutrustning används"
 
-#: ports/espressif/common-hal/busio/UART.c ports/nrf/common-hal/busio/UART.c
+#: ports/espressif/common-hal/busio/UART.c ports/nordic/common-hal/busio/UART.c
 msgid "All UART peripherals are in use"
 msgstr "Alla UART-kringutrustning används"
 
-#: ports/nrf/common-hal/countio/Counter.c
-#: ports/nrf/common-hal/pulseio/PulseIn.c
-#: ports/nrf/common-hal/rotaryio/IncrementalEncoder.c
+#: ports/nordic/common-hal/countio/Counter.c
+#: ports/nordic/common-hal/pulseio/PulseIn.c
+#: ports/nordic/common-hal/rotaryio/IncrementalEncoder.c
 msgid "All channels in use"
 msgstr "Alla kanaler används"
 
@@ -522,7 +523,8 @@ msgstr "Alla dma-kanaler används"
 msgid "All event channels in use"
 msgstr "Alla händelsekanaler används"
 
-#: ports/raspberrypi/common-hal/picodvi/Framebuffer.c
+#: ports/raspberrypi/common-hal/floppyio/__init__.c
+#: ports/raspberrypi/common-hal/picodvi/Framebuffer_RP2040.c
 #: ports/raspberrypi/common-hal/rp2pio/StateMachine.c
 #: ports/raspberrypi/common-hal/usb_host/Port.c
 msgid "All state machines in use"
@@ -532,7 +534,7 @@ msgstr "Alla tillståndsmaskiner används"
 msgid "All sync event channels in use"
 msgstr "Alla synkroniseringskanaler används"
 
-#: ports/raspberrypi/common-hal/picodvi/Framebuffer.c
+#: ports/raspberrypi/common-hal/picodvi/Framebuffer_RP2040.c
 msgid "All timers for this pin are in use"
 msgstr "Alla timers för denna pinne är i bruk"
 
@@ -541,15 +543,16 @@ msgstr "Alla timers för denna pinne är i bruk"
 #: ports/atmel-samd/common-hal/pulseio/PulseIn.c
 #: ports/atmel-samd/common-hal/pulseio/PulseOut.c
 #: ports/cxd56/common-hal/pulseio/PulseOut.c
-#: ports/nrf/common-hal/audiopwmio/PWMAudioOut.c
-#: ports/nrf/common-hal/pulseio/PulseIn.c ports/nrf/peripherals/nrf/timers.c
+#: ports/nordic/common-hal/audiopwmio/PWMAudioOut.c
+#: ports/nordic/common-hal/pulseio/PulseIn.c
+#: ports/nordic/peripherals/nrf/timers.c
 #: ports/raspberrypi/common-hal/audiopwmio/PWMAudioOut.c
 #: ports/stm/peripherals/timers.c
 msgid "All timers in use"
 msgstr "Alla timers används"
 
 #: ports/espressif/common-hal/_bleio/Adapter.c
-#: ports/nrf/common-hal/_bleio/Adapter.c
+#: ports/nordic/common-hal/_bleio/Adapter.c
 msgid "Already advertising."
 msgstr "Annonserar redan."
 
@@ -692,7 +695,7 @@ msgstr "Buffert för liten"
 
 #: ports/atmel-samd/common-hal/paralleldisplaybus/ParallelBus.c
 #: ports/espressif/common-hal/paralleldisplaybus/ParallelBus.c
-#: ports/nrf/common-hal/paralleldisplaybus/ParallelBus.c
+#: ports/nordic/common-hal/paralleldisplaybus/ParallelBus.c
 #: ports/raspberrypi/common-hal/paralleldisplaybus/ParallelBus.c
 #, c-format
 msgid "Bus pin %d is already in use"
@@ -736,7 +739,7 @@ msgid "Can only alarm on two low pins from deep sleep."
 msgstr "Kan bara larma från djup sömn på två låga pinnar."
 
 #: ports/espressif/common-hal/_bleio/Characteristic.c
-#: ports/nrf/common-hal/_bleio/Characteristic.c
+#: ports/nordic/common-hal/_bleio/Characteristic.c
 msgid "Can't set CCCD on local Characteristic"
 msgstr "Kan inte ställa in CCCD på lokal karaktäristik"
 
@@ -758,12 +761,12 @@ msgstr "Kan inte radera värden"
 
 #: ports/atmel-samd/common-hal/digitalio/DigitalInOut.c
 #: ports/mimxrt10xx/common-hal/digitalio/DigitalInOut.c
-#: ports/nrf/common-hal/digitalio/DigitalInOut.c
+#: ports/nordic/common-hal/digitalio/DigitalInOut.c
 #: ports/raspberrypi/common-hal/digitalio/DigitalInOut.c
 msgid "Cannot get pull while in output mode"
 msgstr "Kan inte ange pull i output-läge"
 
-#: ports/nrf/common-hal/microcontroller/Processor.c
+#: ports/nordic/common-hal/microcontroller/Processor.c
 msgid "Cannot get temperature"
 msgstr "Kan inte hämta temperatur"
 
@@ -797,7 +800,7 @@ msgstr "Det går inte att specificera RTS eller CTS i RS485-läget"
 msgid "Cannot subclass slice"
 msgstr "Det går inte att subklassa slice"
 
-#: ports/nrf/common-hal/alarm/pin/PinAlarm.c
+#: ports/nordic/common-hal/alarm/pin/PinAlarm.c
 msgid "Cannot wake on pin edge, only level"
 msgstr "Kan inte vakna på pin edge, bara nivå"
 
@@ -858,7 +861,7 @@ msgid "DAC already in use"
 msgstr "DAC används redan"
 
 #: ports/atmel-samd/common-hal/paralleldisplaybus/ParallelBus.c
-#: ports/nrf/common-hal/paralleldisplaybus/ParallelBus.c
+#: ports/nordic/common-hal/paralleldisplaybus/ParallelBus.c
 msgid "Data 0 pin must be byte aligned"
 msgstr "Datapinne 0 måste vara bytejusterad"
 
@@ -871,12 +874,12 @@ msgid "Data format error (may be broken data)"
 msgstr "Dataformatfel (kan var felaktig data)"
 
 #: ports/espressif/common-hal/_bleio/Adapter.c
-#: ports/nrf/common-hal/_bleio/Adapter.c
+#: ports/nordic/common-hal/_bleio/Adapter.c
 msgid "Data not supported with directed advertising"
 msgstr "Data stöds inte med riktad annonsering"
 
 #: ports/espressif/common-hal/_bleio/Adapter.c
-#: ports/nrf/common-hal/_bleio/Adapter.c
+#: ports/nordic/common-hal/_bleio/Adapter.c
 msgid "Data too large for advertisement packet"
 msgstr "Data för stor för annonseringspaket"
 
@@ -892,7 +895,7 @@ msgstr "Målkapaciteten är mindre än destination_length."
 msgid "Device error or wrong termination of input stream"
 msgstr "Enhetsfel eller felaktig terminator av inström"
 
-#: ports/nrf/common-hal/audiobusio/I2SOut.c
+#: ports/nordic/common-hal/audiobusio/I2SOut.c
 msgid "Device in use"
 msgstr "Enheten används redan"
 
@@ -942,7 +945,7 @@ msgid "Expected a kind of %q"
 msgstr "Förväntade en typ av %q"
 
 #: ports/espressif/common-hal/_bleio/Adapter.c
-#: ports/nrf/common-hal/_bleio/Adapter.c
+#: ports/nordic/common-hal/_bleio/Adapter.c
 msgid "Extended advertisements with scan response not supported."
 msgstr "Utökad annonsering i kombination med skanningssvar stöds inte."
 
@@ -958,7 +961,7 @@ msgstr "FTT är enbart implementerad för linjära matriser"
 msgid "Failed sending command."
 msgstr "Det gick inte att skicka kommandot."
 
-#: ports/nrf/sd_mutex.c
+#: ports/nordic/sd_mutex.c
 #, c-format
 msgid "Failed to acquire mutex, err 0x%04x"
 msgstr "Det gick inte att förvärva mutex, fel 0x%04x"
@@ -991,11 +994,11 @@ msgid "Failed to buffer the sample"
 msgstr "Det gick inte att buffra samplingen"
 
 #: ports/espressif/common-hal/_bleio/Adapter.c
-#: ports/nrf/common-hal/_bleio/Adapter.c
+#: ports/nordic/common-hal/_bleio/Adapter.c
 msgid "Failed to connect: internal error"
 msgstr "Det gick inte att ansluta: internt fel"
 
-#: ports/nrf/common-hal/_bleio/Adapter.c
+#: ports/nordic/common-hal/_bleio/Adapter.c
 msgid "Failed to connect: timeout"
 msgstr "Det gick inte att ansluta: timeout"
 
@@ -1003,7 +1006,7 @@ msgstr "Det gick inte att ansluta: timeout"
 msgid "Failed to parse MP3 file"
 msgstr "Det gick inte att tolka MP3-filen"
 
-#: ports/nrf/sd_mutex.c
+#: ports/nordic/sd_mutex.c
 #, c-format
 msgid "Failed to release mutex, err 0x%04x"
 msgstr "Det gick inte att frigöra mutex, fel 0x%04x"
@@ -1139,11 +1142,13 @@ msgstr "Indata tar för lång tid"
 msgid "Input/output error"
 msgstr "Indata-/utdatafel"
 
-#: ports/nrf/common-hal/_bleio/__init__.c
+#: ports/espressif/common-hal/_bleio/__init__.c
+#: ports/nordic/common-hal/_bleio/__init__.c
 msgid "Insufficient authentication"
 msgstr "Otillräcklig autentisering"
 
-#: ports/nrf/common-hal/_bleio/__init__.c
+#: ports/espressif/common-hal/_bleio/__init__.c
+#: ports/nordic/common-hal/_bleio/__init__.c
 msgid "Insufficient encryption"
 msgstr "Otillräcklig kryptering"
 
@@ -1179,10 +1184,13 @@ msgstr "Internt fel #%d"
 #: ports/atmel-samd/common-hal/alarm/pin/PinAlarm.c
 #: ports/atmel-samd/common-hal/countio/Counter.c
 #: ports/atmel-samd/common-hal/frequencyio/FrequencyIn.c
+#: ports/atmel-samd/common-hal/max3421e/Max3421E.c
 #: ports/atmel-samd/common-hal/ps2io/Ps2.c
 #: ports/atmel-samd/common-hal/pulseio/PulseIn.c
 #: ports/atmel-samd/common-hal/rotaryio/IncrementalEncoder.c
-#: ports/cxd56/common-hal/pulseio/PulseIn.c shared-bindings/pwmio/PWMOut.c
+#: ports/cxd56/common-hal/pulseio/PulseIn.c
+#: ports/raspberrypi/common-hal/picodvi/Framebuffer_RP2350.c
+#: shared-bindings/pwmio/PWMOut.c
 msgid "Internal resource(s) in use"
 msgstr ""
 
@@ -1198,14 +1206,20 @@ msgstr "Interrupt-fel."
 msgid "Interrupted by output function"
 msgstr "Avbruten av utgångsfunktion"
 
+#: ports/espressif/common-hal/espulp/ULP.c
+#: ports/espressif/common-hal/microcontroller/Processor.c
 #: ports/mimxrt10xx/common-hal/audiobusio/__init__.c
 #: ports/mimxrt10xx/common-hal/pwmio/PWMOut.c
 #: ports/raspberrypi/bindings/picodvi/Framebuffer.c
-#: ports/raspberrypi/common-hal/picodvi/Framebuffer.c py/argcheck.c
+#: ports/raspberrypi/common-hal/picodvi/Framebuffer_RP2040.c py/argcheck.c
 #: shared-bindings/digitalio/DigitalInOut.c
 #: shared-bindings/epaperdisplay/EPaperDisplay.c shared-bindings/pwmio/PWMOut.c
 msgid "Invalid %q"
 msgstr "Ogiltig %q"
+
+#: ports/raspberrypi/common-hal/picodvi/Framebuffer_RP2350.c
+msgid "Invalid %q and %q"
+msgstr ""
 
 #: ports/atmel-samd/common-hal/microcontroller/Pin.c
 #: ports/espressif/common-hal/dotclockframebuffer/DotClockFramebuffer.c
@@ -1219,7 +1233,7 @@ msgid "Invalid ADC Unit value"
 msgstr "Ogiltigt ADC-enhetsvärde"
 
 #: ports/espressif/common-hal/_bleio/__init__.c
-#: ports/nrf/common-hal/_bleio/__init__.c
+#: ports/nordic/common-hal/_bleio/__init__.c
 msgid "Invalid BLE parameter"
 msgstr "Ogiltig BLE-parameter"
 
@@ -1305,9 +1319,17 @@ msgstr "Layer är redan med i en grupp"
 msgid "Layer must be a Group or TileGrid subclass"
 msgstr "Layer måste vara en underklass av Group eller TileGrid"
 
+#: shared-bindings/audiocore/RawSample.c
+msgid "Length of %q must be an even multiple of channel_count * type_size"
+msgstr ""
+
 #: ports/espressif/common-hal/espidf/__init__.c
 msgid "MAC address was invalid"
 msgstr "MAC-adressen var ogiltig"
+
+#: ports/espressif/common-hal/_bleio/Characteristic.c
+msgid "MITM security not supported"
+msgstr ""
 
 #: shared-bindings/is31fl3741/IS31FL3741.c
 msgid "Mapping must be a tuple"
@@ -1399,7 +1421,8 @@ msgstr "Nimble har inget minne kvar"
 #: ports/espressif/common-hal/busio/SPI.c
 #: ports/espressif/common-hal/busio/UART.c
 #: ports/mimxrt10xx/common-hal/busio/SPI.c
-#: ports/mimxrt10xx/common-hal/busio/UART.c ports/nrf/common-hal/busio/UART.c
+#: ports/mimxrt10xx/common-hal/busio/UART.c
+#: ports/nordic/common-hal/busio/UART.c
 #: ports/raspberrypi/common-hal/busio/UART.c ports/stm/common-hal/busio/SPI.c
 #: ports/stm/common-hal/busio/UART.c shared-bindings/fourwire/FourWire.c
 #: shared-bindings/i2cdisplaybus/I2CDisplayBus.c
@@ -1409,7 +1432,7 @@ msgid "No %q pin"
 msgstr "Ingen %q-pinne"
 
 #: ports/espressif/common-hal/_bleio/Characteristic.c
-#: ports/nrf/common-hal/_bleio/Characteristic.c
+#: ports/nordic/common-hal/_bleio/Characteristic.c
 msgid "No CCCD for this Characteristic"
 msgstr "Ingen CCCD för denna karaktäristik"
 
@@ -1488,7 +1511,7 @@ msgstr "Inget out i programmet"
 
 #: ports/atmel-samd/common-hal/busio/I2C.c
 #: ports/espressif/common-hal/busio/I2C.c
-#: ports/mimxrt10xx/common-hal/busio/I2C.c ports/nrf/common-hal/busio/I2C.c
+#: ports/mimxrt10xx/common-hal/busio/I2C.c ports/nordic/common-hal/busio/I2C.c
 #: ports/raspberrypi/common-hal/busio/I2C.c
 msgid "No pull up found on SDA or SCL; check your wiring"
 msgstr "Ingen pull-up hittades på SDA eller SCL; kontrollera inkopplingen"
@@ -1517,7 +1540,7 @@ msgstr "Ingen timer tillgänglig"
 msgid "No usb host port initialized"
 msgstr "Ingen usb värdport initialiserad"
 
-#: ports/nrf/common-hal/_bleio/__init__.c
+#: ports/nordic/common-hal/_bleio/__init__.c
 msgid "Nordic system firmware out of memory"
 msgstr "Nordic systemfirmware fick slut på minne"
 
@@ -1526,7 +1549,7 @@ msgid "Not a valid IP string"
 msgstr "Inte en giltig IP-sträng"
 
 #: ports/espressif/common-hal/_bleio/__init__.c
-#: ports/nrf/common-hal/_bleio/__init__.c
+#: ports/nordic/common-hal/_bleio/__init__.c
 #: shared-bindings/_bleio/CharacteristicBuffer.c
 msgid "Not connected"
 msgstr "Inte ansluten"
@@ -1552,7 +1575,7 @@ msgstr ""
 "Objektet har deinitialiserats och kan inte längre användas. Skapa ett nytt "
 "objekt."
 
-#: ports/nrf/common-hal/busio/UART.c
+#: ports/nordic/common-hal/busio/UART.c
 msgid "Odd parity is not supported"
 msgstr "Udda paritet stöds inte"
 
@@ -1575,7 +1598,6 @@ msgstr "Endast 8 eller 16 bitars mono med %dx översampling stöds."
 msgid "Only IPv4 addresses supported"
 msgstr "Endast IPv4-adresser stöds"
 
-#: ports/espressif/common-hal/socketpool/Socket.c
 #: ports/raspberrypi/common-hal/socketpool/Socket.c
 msgid "Only IPv4 sockets supported"
 msgstr "Endast IPv4-socket stöds"
@@ -1622,7 +1644,7 @@ msgid "Only one address is allowed"
 msgstr "Endast en adress är tillåten"
 
 #: ports/atmel-samd/common-hal/alarm/time/TimeAlarm.c
-#: ports/nrf/common-hal/alarm/time/TimeAlarm.c
+#: ports/nordic/common-hal/alarm/time/TimeAlarm.c
 #: ports/stm/common-hal/alarm/time/TimeAlarm.c
 msgid "Only one alarm.time alarm can be set"
 msgstr "Endast ett alarm.time-larm kan ställas in"
@@ -1800,7 +1822,7 @@ msgid "RNG Init Error"
 msgstr "RNG Init-fel"
 
 #: ports/atmel-samd/common-hal/busio/UART.c ports/cxd56/common-hal/busio/UART.c
-#: ports/nrf/common-hal/busio/UART.c ports/stm/common-hal/busio/UART.c
+#: ports/nordic/common-hal/busio/UART.c ports/stm/common-hal/busio/UART.c
 msgid "RS485"
 msgstr "RS485"
 
@@ -1903,7 +1925,7 @@ msgid "Scale dimensions must divide by 3"
 msgstr "Skaldimension måste vara delbar med 3"
 
 #: ports/espressif/common-hal/_bleio/Adapter.c
-#: ports/nrf/common-hal/_bleio/Adapter.c
+#: ports/nordic/common-hal/_bleio/Adapter.c
 msgid "Scan already in progress. Stop with stop_scan."
 msgstr "Skanning pågår redan. Stoppa med stop_scan."
 
@@ -2022,7 +2044,7 @@ msgid "Time is in the past."
 msgstr "Tid har passerats."
 
 #: ports/espressif/common-hal/_bleio/Adapter.c
-#: ports/nrf/common-hal/_bleio/Adapter.c
+#: ports/nordic/common-hal/_bleio/Adapter.c
 #, c-format
 msgid "Timeout is too long: Maximum timeout length is %d seconds"
 msgstr "Åtgärden tog för lång tid: Max väntetid är %d sekunder"
@@ -2035,6 +2057,10 @@ msgstr "För många kanaler i urvalet"
 msgid "Too many channels in sample."
 msgstr "För många kanaler i sampling."
 
+#: ports/espressif/common-hal/_bleio/Characteristic.c
+msgid "Too many descriptors"
+msgstr ""
+
 #: shared-module/displayio/__init__.c
 msgid "Too many display busses; forgot displayio.release_displays() ?"
 msgstr "För många displaybussar; glömt displayio.release_displays() ?"
@@ -2044,7 +2070,7 @@ msgid "Too many displays"
 msgstr "För många displayer"
 
 #: ports/espressif/common-hal/_bleio/PacketBuffer.c
-#: ports/nrf/common-hal/_bleio/PacketBuffer.c
+#: ports/nordic/common-hal/_bleio/PacketBuffer.c
 msgid "Total data to write is larger than %q"
 msgstr "Totala data att skriva är större än %q"
 
@@ -2160,7 +2186,7 @@ msgstr "Kan inte skriva till skrivskyddat minne"
 msgid "Unable to write to sleep_memory."
 msgstr "Det gick inte att skriva till sleep_memory."
 
-#: ports/nrf/common-hal/_bleio/UUID.c
+#: ports/nordic/common-hal/_bleio/UUID.c
 msgid "Unexpected nrfx uuid type"
 msgstr "Oväntad nrfx uuid-typ"
 
@@ -2174,6 +2200,7 @@ msgstr "Okänt BLE-fel vid %s:%d: %d"
 msgid "Unknown BLE error: %d"
 msgstr "Okänt BLE-fel: %d"
 
+#: ports/espressif/common-hal/max3421e/Max3421E.c
 #: ports/raspberrypi/common-hal/wifi/__init__.c
 #, c-format
 msgid "Unknown error code %d"
@@ -2184,7 +2211,7 @@ msgstr "Okänd felkod %d"
 msgid "Unknown failure %d"
 msgstr "Okänt fel %d"
 
-#: ports/nrf/common-hal/_bleio/__init__.c
+#: ports/nordic/common-hal/_bleio/__init__.c
 #, c-format
 msgid "Unknown gatt error: 0x%04x"
 msgstr "Okänt gatt-fel: 0x%04x"
@@ -2194,7 +2221,7 @@ msgstr "Okänt gatt-fel: 0x%04x"
 msgid "Unknown reason."
 msgstr "Okänd anledning."
 
-#: ports/nrf/common-hal/_bleio/__init__.c
+#: ports/nordic/common-hal/_bleio/__init__.c
 #, c-format
 msgid "Unknown security error: 0x%04x"
 msgstr "Okänt säkerhetsfel: 0x%04x"
@@ -2204,7 +2231,7 @@ msgstr "Okänt säkerhetsfel: 0x%04x"
 msgid "Unknown system firmware error at %s:%d: %d"
 msgstr "Okänt fel i systemets firmware vid %s:%d: %d"
 
-#: ports/nrf/common-hal/_bleio/__init__.c
+#: ports/nordic/common-hal/_bleio/__init__.c
 #, c-format
 msgid "Unknown system firmware error: %04x"
 msgstr "Okänt systemfirmwarefel: %04x"
@@ -2220,7 +2247,7 @@ msgstr "Okänt fel i systemets firmware: %d"
 msgid "Unmatched number of items on RHS (expected %d, got %d)."
 msgstr "Omatchat antal på RHS (förväntat %d, fick %d)."
 
-#: ports/nrf/common-hal/_bleio/__init__.c
+#: ports/nordic/common-hal/_bleio/__init__.c
 msgid ""
 "Unspecified issue. Can be that the pairing prompt on the other device was "
 "declined or ignored."
@@ -2244,21 +2271,26 @@ msgstr "Format stöds inte"
 msgid "Unsupported hash algorithm"
 msgstr "Hash-algoritmen stöds inte"
 
+#: ports/espressif/common-hal/socketpool/Socket.c
+msgid "Unsupported socket type"
+msgstr ""
+
+#: ports/espressif/common-hal/_bleio/Adapter.c
 #: ports/espressif/common-hal/dualbank/__init__.c
-msgid "Update Failed"
-msgstr "Uppdateringen misslyckades"
+msgid "Update failed"
+msgstr ""
 
 #: ports/espressif/common-hal/_bleio/Characteristic.c
 #: ports/espressif/common-hal/_bleio/Descriptor.c
-#: ports/nrf/common-hal/_bleio/Characteristic.c
-#: ports/nrf/common-hal/_bleio/Descriptor.c
+#: ports/nordic/common-hal/_bleio/Characteristic.c
+#: ports/nordic/common-hal/_bleio/Descriptor.c
 msgid "Value length != required fixed length"
 msgstr "Värdets längde ! = krävd fast längd"
 
 #: ports/espressif/common-hal/_bleio/Characteristic.c
 #: ports/espressif/common-hal/_bleio/Descriptor.c
-#: ports/nrf/common-hal/_bleio/Characteristic.c
-#: ports/nrf/common-hal/_bleio/Descriptor.c
+#: ports/nordic/common-hal/_bleio/Characteristic.c
+#: ports/nordic/common-hal/_bleio/Descriptor.c
 msgid "Value length > max_length"
 msgstr "Värdets längd > max_length"
 
@@ -2274,7 +2306,7 @@ msgstr "Avläsning av spänning tog för lång tid"
 msgid "WARNING: Your code filename has two extensions\n"
 msgstr "VARNING: Ditt filnamn för kod har två tillägg\n"
 
-#: ports/nrf/common-hal/watchdog/WatchDogTimer.c
+#: ports/nordic/common-hal/watchdog/WatchDogTimer.c
 msgid "WatchDogTimer cannot be deinitialized once mode is set to RESET"
 msgstr "WatchDogTimer kan inte avinitialiseras när läget är inställt på RESET"
 
@@ -2306,7 +2338,7 @@ msgid "Woken up by alarm.\n"
 msgstr "Vaknade av larm.\n"
 
 #: ports/espressif/common-hal/_bleio/PacketBuffer.c
-#: ports/nrf/common-hal/_bleio/PacketBuffer.c
+#: ports/nordic/common-hal/_bleio/PacketBuffer.c
 msgid "Writes not supported on Characteristic"
 msgstr "Skrivning stöds inte på karaktäristik"
 
@@ -2350,6 +2382,7 @@ msgid "You pressed the SW38 button at start up."
 msgstr "Du tryckte ned SW38-knappen vid start."
 
 #: ports/espressif/boards/hardkernel_odroid_go/mpconfigboard.h
+#: ports/espressif/boards/vidi_x/mpconfigboard.h
 msgid "You pressed the VOLUME button at start up."
 msgstr "Du tryckte ned VOLYM-knappen vid start."
 
@@ -2360,7 +2393,7 @@ msgstr "Du tryckte ned VOLYM-knappen vid start."
 msgid "You pressed the central button at start up."
 msgstr "Du tryckte ned mittknappen vid start."
 
-#: ports/nrf/boards/aramcon2_badge/mpconfigboard.h
+#: ports/nordic/boards/aramcon2_badge/mpconfigboard.h
 msgid "You pressed the left button at start up."
 msgstr "Du tryckte ned vänster knapp vid start."
 
@@ -2952,7 +2985,7 @@ msgstr "slut på format vid sökning efter konverteringsspecificerare"
 msgid "epoch_time not supported on this board"
 msgstr "epoch_time stöds inte av detta kort"
 
-#: ports/nrf/common-hal/busio/UART.c
+#: ports/nordic/common-hal/busio/UART.c
 #, c-format
 msgid "error = 0x%08lX"
 msgstr "fel = 0x%08lX"
@@ -3444,8 +3477,8 @@ msgid "matrix is not positive definite"
 msgstr "matrisen är inte positiv bestämd"
 
 #: ports/espressif/common-hal/_bleio/Descriptor.c
-#: ports/nrf/common-hal/_bleio/Characteristic.c
-#: ports/nrf/common-hal/_bleio/Descriptor.c
+#: ports/nordic/common-hal/_bleio/Characteristic.c
+#: ports/nordic/common-hal/_bleio/Descriptor.c
 #, c-format
 msgid "max_length must be 0-%d when fixed_length is %s"
 msgstr "max_length måste vara 0-%d när fixed_length är %s"
@@ -3605,7 +3638,7 @@ msgid "no such attribute"
 msgstr "inget sådant attribut"
 
 #: ports/espressif/common-hal/_bleio/Connection.c
-#: ports/nrf/common-hal/_bleio/Connection.c
+#: ports/nordic/common-hal/_bleio/Connection.c
 msgid "non-UUID found in service_uuids_whitelist"
 msgstr "icke-UUID hittades i service_uuids_whitelist"
 
@@ -3617,7 +3650,7 @@ msgstr "icke-standard argument följer standard argument"
 msgid "non-hex digit found"
 msgstr "icke-hexnummer hittade"
 
-#: ports/nrf/common-hal/_bleio/Adapter.c
+#: ports/nordic/common-hal/_bleio/Adapter.c
 msgid "non-zero timeout must be > 0.01"
 msgstr "Icke-noll timeout måste vara > 0.01"
 
@@ -3723,7 +3756,7 @@ msgstr "offset måste vara >= 0"
 msgid "offset must be non-negative and no greater than buffer length"
 msgstr "offset måste vara icke-negativt och inte längre än buffertlängd"
 
-#: ports/nrf/common-hal/audiobusio/PDMIn.c
+#: ports/nordic/common-hal/audiobusio/PDMIn.c
 #: ports/stm/common-hal/audiobusio/PDMIn.c
 msgid "only bit_depth=16 is supported"
 msgstr "bara bit_depth=16 stöds"
@@ -3740,7 +3773,7 @@ msgstr "endast ndarrays kan sammanfogas"
 msgid "only oversample=64 is supported"
 msgstr "endast oversample=64 stöds"
 
-#: ports/nrf/common-hal/audiobusio/PDMIn.c
+#: ports/nordic/common-hal/audiobusio/PDMIn.c
 #: ports/stm/common-hal/audiobusio/PDMIn.c
 msgid "only sample_rate=16000 is supported"
 msgstr "enbart sample_rate=16000 stöds"
@@ -3852,14 +3885,14 @@ msgstr "pop från en tom PulseIn"
 
 #: ports/atmel-samd/common-hal/pulseio/PulseIn.c
 #: ports/cxd56/common-hal/pulseio/PulseIn.c
-#: ports/nrf/common-hal/pulseio/PulseIn.c
+#: ports/nordic/common-hal/pulseio/PulseIn.c
 #: ports/raspberrypi/common-hal/pulseio/PulseIn.c
 #: ports/stm/common-hal/pulseio/PulseIn.c py/objdict.c py/objlist.c py/objset.c
 #: shared-bindings/ps2io/Ps2.c
 msgid "pop from empty %q"
 msgstr "pop från tom %q"
 
-#: shared-bindings/socketpool/Socket.c shared-bindings/ssl/SSLSocket.c
+#: shared-bindings/socketpool/Socket.c
 msgid "port must be >= 0"
 msgstr "port måste vara >= 0"
 
@@ -4072,13 +4105,22 @@ msgstr "syntaxfel i uctypes deskriptor"
 msgid "ticks interval overflow"
 msgstr "Överskridet tickintervall"
 
-#: ports/nrf/common-hal/watchdog/WatchDogTimer.c
+#: ports/nordic/common-hal/watchdog/WatchDogTimer.c
 msgid "timeout duration exceeded the maximum supported value"
 msgstr "timeout-längd överskred det maximala värde som stöds"
 
-#: ports/nrf/common-hal/_bleio/Adapter.c
+#: ports/nordic/common-hal/_bleio/Adapter.c
 msgid "timeout must be < 655.35 secs"
 msgstr "timeout måste vara < 655,35 sekunder"
+
+#: ports/raspberrypi/common-hal/floppyio/__init__.c
+msgid "timeout waiting for flux"
+msgstr ""
+
+#: ports/raspberrypi/common-hal/floppyio/__init__.c
+#: shared-module/floppyio/__init__.c
+msgid "timeout waiting for index pulse"
+msgstr ""
 
 #: shared-module/sdcardio/SDCard.c
 msgid "timeout waiting for v1 card"
@@ -4362,6 +4404,9 @@ msgstr "zi måste vara av typ float"
 #: extmod/ulab/code/scipy/signal/signal.c
 msgid "zi must be of shape (n_section, 2)"
 msgstr "zi måste vara i formen (n_section, 2)"
+
+#~ msgid "Update Failed"
+#~ msgstr "Uppdateringen misslyckades"
 
 #~ msgid "Error: Failure to bind"
 #~ msgstr "Fel: Bind misslyckades"
